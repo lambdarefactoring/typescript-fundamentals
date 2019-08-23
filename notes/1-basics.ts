@@ -3,12 +3,12 @@
 /**
  * (1) x is a string, b/c we’ve initialized it
  */
-// let x = "hello world";
+let x = "hello world";
 
 /**
  * (2) reassignment is fine
  */
-// x = "hello mars";
+x = "hello mars";
 
 /**
  * (3) but if we try to change type
@@ -18,7 +18,18 @@
 /**
  * (4) let's look at const. The type is literally 'hello world'
  */
-// const y = "hello world";
+const y = "hello world";
+
+function hello(arg: string) {
+
+}
+
+const yObj = {
+    foo: 'bar'
+}
+
+yObj.foo = 'hey';
+hello(y)
 
 /**
  * This is called a 'string literal type'. y can never be reassigned since it's a const,
@@ -29,9 +40,9 @@
 /**
  * (5) sometimes we need to declare a variable w/o initializing it
  */
-// let z;
-// z = 41;
-// z = "abc"; // (6) oh no! This isn't good
+let z;
+z = 41
+z = "abc"; // (6) oh no! This isn't good
 
 /**
  * If we look at the type of z, it's `any`. This is the most flexible type
@@ -42,8 +53,8 @@
  * (7) we could improve this situation by providing a type annotation
  * when we declare our variable
  */
-// let zz: number;
-// zz = 41;
+let zz: number;
+zz = 41;
 // zz = "abc"; // 🚨 ERROR Type '"abc"' is not assignable to type 'number'.
 
 //== SIMPLE ARRAYS ==//
@@ -51,19 +62,19 @@
 /**
  * (8) simple array types can be expressed using []
  */
-// let aa: number[] = [];
-// aa.push(33);
-// aa.push("abc"); // 🚨 ERROR: Argument of type '"abc"' is not assignable to parameter of type 'number'.
+let aa: (string | number)[] = [];
+aa.push(33);
+aa.push("abc"); // 🚨 ERROR: Argument of type '"abc"' is not assignable to parameter of type 'number'.
 
 /**
  * (9) we can even define a tuple, which has a fixed length
  */
-// let bb: [number, string, string, number] = [
-//   123,
-//   "Fake Street",
-//   "Nowhere, USA",
-//   10110
-// ];
+let bb: [number, string, string, number] = [
+  123,
+  "Fake Street",
+  "Nowhere, USA",
+  10110
+];
 
 // bb = [1, 2, 3]; // 🚨 ERROR: Type 'number' is not assignable to type 'string'.
 
